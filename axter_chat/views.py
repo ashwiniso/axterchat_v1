@@ -7,3 +7,6 @@ def index(request):
 
 def specific(request):
     return HttpResponse("Hello, world. You're at the axter_chat specific.")
+
+def article(request, article_id):
+    return render(request, "axter_chat/index.html", {"article_id": article_id})
