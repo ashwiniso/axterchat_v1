@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 #setting up url patterns
-
+#this file represents the main url file of the projevt 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("axter_chat.urls"))
+    path("axter_chat/", include("axter_chat.urls"))
 
 ]
