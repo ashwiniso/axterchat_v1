@@ -13,5 +13,38 @@
 
 <h1>Axter: The healthy chatbot!</h1>
 
+<div>
+    <div id="chatbot" >
+        <div id="chatbot-container">
+            <div id="chatbot-header">
+                <div id="chatbot-header-text">
+                    <h2>Axter</h2>
+                </div>
+                <div id="chatbot-header-close">
+                    <button id="chatbot-close-button" onclick="closeChatbot()">close</button>
+                </div>
+            </div>
+            <div id="chatbot-body">
+                <div id="chatbot-body-messages">
+                    <div id="chatbot-body-messages-container">
+                        <div id="chatbot-body-messages-container-text">
+                            <p>Hi! I'm Axter, your personal health assistant. I can help you with your health related queries. What would you like to know?</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="chatbot-body-input">
+                    <form id="chatbot-body-input-form" onsubmit="return false;">
+                        <input type="text" id="chatbot-body-input-form-text" placeholder="Type your message here...">
+                        <button type="submit" id="chatbot-body-input-form-submit" onclick="sendMessage()">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="chatbot-button">
+            <button id="chatbot-button-open" onclick="openChatbot()">Open Chatbot</button>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
