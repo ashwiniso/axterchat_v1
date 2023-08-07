@@ -1,26 +1,22 @@
 /* Overall chatbot container */
 #chatbot {
   width: 80%;
-  margin: 50px auto; /* Center the chatbot container horizontally with top margin */
-  margin-left : auto;
+  margin-top: 50px auto; /* Center the chatbot container horizontally with top margin */
+  margin-left : auto; /* Center the chatbot container horizontally with left margin */
+  border-radius : 20px; /* Add a border radius to the chatbot container */
+  border : 3px solid #5b605c; /* Add a grey border */
   margin-right : auto;
   overflow: hidden; /* Prevent the chat messages from overflowing the container */
-  padding : 10px;
+  padding : 10px; /* Add some padding */
 }
 
 /* Bot's messages */
 .botText {
-  background-color: #f0f0f0;
-  font-family: monospace;
-  font-size : 15px; 
-  text-align : left;
-  color : rgb(109,111,109);
-  padding: 10px;
-  border-radius: 20px;
-  margin-left: auto; /* Push the chat message to the right */
-  margin-right: auto;
-  width: 70%; /* Reduce the width to leave space for the user input */
-  clear: both;
+  font-family: monospace; /* Use monospace to enable tab character */
+  font-size: 15px;
+  text-align: left;
+  line-height: 25px;
+  color: rgb(109,111,109);
 }
 
 /* User input area */
