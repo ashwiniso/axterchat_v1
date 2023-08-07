@@ -6,13 +6,13 @@ from django.http import HttpResponse
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
-bot = ChatBot('Axter',read_only=False,logic_adapters=['chatterbot.logic.MathematicalEvaluation','chatterbot.logic.BestMatch'])
+bot = ChatBot('Axter',read_only=False,logic_adapters=[{'import_path':'chatterbot.logic.BestMatch','deafult_response':'I am sorry, but I do not understand. I am still learning.','maximum_similarity_threshold':0.90}])
 
 
 list_to_train = [
     "Hi",
     "Hello",
-    "How are you?",
+    "Hi! How are you?",
     "I am good.",
     "That is good to hear.",
     "Thank you",

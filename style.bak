@@ -1,0 +1,71 @@
+/* Overall chatbot container */
+#chatbot {
+  width: 80%;
+  margin-top: 50px auto; /* Center the chatbot container horizontally with top margin */
+  margin-left : auto; /* Center the chatbot container horizontally with left margin */
+  border-radius : 20px; /* Add a border radius to the chatbot container */
+  border : 3px solid #5b605c; /* Add a grey border */
+  margin-right : auto;
+  overflow: hidden; /* Prevent the chat messages from overflowing the container */
+  padding : 10px; /* Add some padding */
+}
+
+/* Bot's messages */
+.botText {
+  font-family: monospace; /* Use monospace to enable tab character */
+  font-size: 15px;
+  text-align: left;
+  line-height: 25px;
+  color: rgb(109,111,109);
+}
+
+/* User input area */
+#userInput {
+  margin-left : auto;
+  margin-right : auto;
+  margin-top: 40px; /* Add some space between the chat messages and user input area */
+  width : 80%;
+  text-align: center;
+}
+
+/* Text input field */
+#textInput {
+  width: 60%; /* Increase the width to make it more user-friendly */
+  border-radius: 20px; /* Increase the border radius for a smoother look */
+  font-family: monospace; /* Use a monospace font to enable tab character */
+  font-size: 15px;
+  border: 3px solid #ccc;
+  border-bottom : 3px solid #afafaf;
+  padding: 16px;
+  color: rgb(213,67,41);
+  box-sizing: border-box; /* Ensure padding doesn't affect the overall width */
+}
+
+#buttonInput{
+  padding : 5px;
+  font-family : monospace;
+  font-size : 15px;
+  border : 3px solid #5b605c;
+  background-color: rgb(40,48,40);
+  color : white;
+  border-radius : 20px;
+}
+
+h1{
+  text-align: center;
+  color : rgb(213,67,41);
+}
+
+
+.userText{
+  text-align: right;
+  width: 60%; /* Increase the width to make it more user-friendly */
+  border-radius: 20px; /* Increase the border radius for a smoother look */
+  font-family: monospace; /* Use a monospace font to enable tab character */
+  font-size: 15px;
+  border: 3px solid #ccc;
+  border-bottom : 3px solid #afafaf;
+  padding: 16px;
+  color: rgb(213,67,41);
+  box-sizing: border-box; /* Ensure padding doesn't affect the overall width */
+}
