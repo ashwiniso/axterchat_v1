@@ -25,7 +25,28 @@
 
     </div>
 </div>
+<script>
+    function getUserMessage() {
+        var userText = $("#textInput").val();
+        var userHTML = '<p class="userText"><span>' + userText + '</span></p>';
+        $('#textInput').val('');
+        return userText;
 
+        $('#chatbot').append(userHTML);
+    }
+
+    $("#textInput").keypress(function(e) {
+        if(e.which == 13) {
+            getUserMessage();
+        }
+    });
+
+    $("#buttonInput").click(function() {
+        getUserMessage();
+    });
+
+
+</script>
 
 </body>
 </html>
