@@ -7,3 +7,7 @@ def index(request):
 
 def specific(request):
     return HttpResponse("Hello, world. You're at the axter_chat specific.")
+
+def getResponse(request):
+    userMessage = request.GET.get('userMessage') #get the user message and integrate with HTML
+    return HttpResponse(userMessage)

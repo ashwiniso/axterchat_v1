@@ -32,6 +32,12 @@
         $('#textInput').val('');
         $('#chatbot').append(userHTML);
 
+
+        $.get('/axter_chat/getResponse',{userMessage:userText}).done(function(data){
+            var returnMessage  = "<p class='botText'><span>bot: </span>" + data + "</p>";
+            $('#chatbot').append(returnMessage);
+        })
+
     }
 
      $("#textInput").keypress(function(e) {
