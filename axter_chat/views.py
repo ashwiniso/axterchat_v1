@@ -26,6 +26,7 @@ list_to_train = [
     "To help you with your doubts",
 ]
 
+ListTrainer(bot).train(list_to_train)
 
 def index(request):
     return render(request, "axter_chat/index.html")
