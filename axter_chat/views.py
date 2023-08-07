@@ -36,4 +36,5 @@ def specific(request):
 
 def getResponse(request):
     userMessage = request.GET.get('userMessage') #get the user message and integrate with HTML
-    return HttpResponse(userMessage)
+    chat_response = str(bot.get_response(userMessage))
+    return HttpResponse(chat_response)
