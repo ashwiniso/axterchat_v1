@@ -21,6 +21,6 @@ from django.urls import path, include
 #this file represents the main url file of the projevt 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("axter_chat/", include("axter_chat.urls"))
+    path("", include("axter_chat.urls"))
 
 ]

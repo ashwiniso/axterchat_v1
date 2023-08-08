@@ -38,14 +38,13 @@ chatterbotCorpusTrainer.train("chatterbot.corpus.english")
 def index(request):
     return render(request, "axter_chat/index.html")
 
-def specific(request):
-    return HttpResponse("Hello, world. You're at the axter_chat specific.")
-
 def getResponse(request):
     userMessage = request.GET.get('userMessage') #get the user message and integrate with HTML
     chat_response = str(bot.get_response(userMessage))
     return HttpResponse(chat_response)
 
+def about(request):
+    return render(request, "axter_chat/about.html")
 
 def login_view(request):
     if request.method == 'POST':

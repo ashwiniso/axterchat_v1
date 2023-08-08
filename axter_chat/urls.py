@@ -3,10 +3,12 @@ from . import views
 #setting up url patterns
 #this file represents the url file of the application from the project
 
+app_name = 'axter_chat'
+
 urlpatterns = [
     path("", views.index, name="index"),
-    path("specific/", views.specific, name="specific"),
     path('getResponse/', views.getResponse, name='getResponse'),
+    path('about/', views.about, name='about'),
     path('login/', views.login_view, name='login'),
     path('register/', views.register_view, name='register')
 ]
