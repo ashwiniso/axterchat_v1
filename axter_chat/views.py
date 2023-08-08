@@ -46,6 +46,12 @@ def getResponse(request):
 def about(request):
     return render(request, "axter_chat/about.html")
 
+def axter(request):
+    return render(request, "axter_chat/axter.html")
+
+def contact(request):
+    return render(request, "axter_chat/contact.html")
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)

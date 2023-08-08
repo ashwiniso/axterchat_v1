@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'axter_chat/contact.css' %}">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navigation">
+            <a href="{% url 'axter_chat:index' %}">Home</a>
+            <a href="{% url 'axter_chat:axter' %}">Axter</a>
+            <a href="{% url 'axter_chat:about' %}">About</a>
+            <a href="{% url 'axter_chat:contact' %}">Contact</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <h1>Contact Us</h1>
+        <p>Feel free to reach out to us if you have any questions or feedback.</p>
+        <p>Our email address is: ashwinnanda@outlook.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Axter Chat</p>
+    </footer>
+
+</body>
+
+</html>

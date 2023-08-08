@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+
+{% load static %}
+<link rel = "stylesheet" type = "text/css" href = "{% static 'axter_chat/chatstyle.css' %}">
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>axter: your new health buddy.</h1>
+
+<div>
+    <div id="chatbot">
+        <p class="botText"><span> Hello here! I am Axter! How can I help you today?!...</span></p>
+    </div>
+
+    <div id="userInput">
+        <input id="textInput" type="text" name="userMessage" placeholder="Message">
+        <button id="buttonInput">Send</button>
+
+    </div> 
+</div>
+
+
+
+<script>
+    function getUserMessage() {
+        var userText = $("#textInput").val();
+        var userHTML = "<p class='userText'>user: <span>" + userText + "</span></p>";
+        $('#textInput').val('');
+        $('#chatbot').append(userHTML);
+
+
+        $.get('/axter/getResponse',{userMessage:userText}).done(function(data){
+            var returnMessage  = "<p class='botText'><span>bot: </span>" + data + "</p>";
+            $('#chatbot').append(returnMessage);
+        })
+
+    }
+
+     $("#textInput").keypress(function(e) {
+        if(e.which == 13) {
+            getUserMessage();
+        }
+    })
+   
+
+    $("#buttonInput").click(function() {
+        getUserMessage();
+    })
+
+
+</script>
+
+</body>
+</html>
