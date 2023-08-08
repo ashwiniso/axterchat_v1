@@ -12,12 +12,9 @@
     <header>
         <h2 class="logo">Logo</h2>
         <nav class="navigation">
-            <ul class="nav__list">
-                <a href="{% url 'axter_chat:index' %}" class="nav__link">Home</a>
-                <a href="{% url 'axter_chat:about' %}" class="nav__link">About</a>
-                <a href="{% url 'axter_chat:login' %}" class="nav__link">Login</a>
-                <a href="{% url 'axter_chat:register' %}" class="nav__link">Register</a>
-            </ul>
+            <a href="{% url 'axter_chat:index' %}">Home</a>
+            <a href="{% url 'axter_chat:about' %}">About</a>
+            <button class="btnLogin-popup">Login</button>           
     </header>
 </body>
 </html>
