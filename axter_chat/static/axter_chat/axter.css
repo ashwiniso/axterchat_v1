@@ -1,0 +1,120 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Common Styles for the Whole Website */
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('background.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+/* ... other header and navigation styles ... */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+
+}
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: #fff;
+  text-decoration:none;
+  font-weight: 500;
+  margin-left: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.navigation a:hover::after{
+  transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 40px;
+  transition:  0.5s;
+}
+
+.navigation .btnLogin-popup:hover {
+  background: #fff;
+  color: #162938;
+}
+
+
+/* Chatbot Specific Styling */
+#chatbot {
+    width: 80%;
+    margin-top: 50px auto;
+    margin-left: auto;
+    border-radius: 20px;
+    border: 3px solid #5b605c;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #1c1c1c; /* Set a background color for chatbot container */
+    color: #fff; /* Adjust font color for readability on dark background */
+}
+
+.botText {
+    font-family: monospace;
+    font-size: 15px;
+    text-align: left;
+    line-height: 25px;
+    color: rgb(109, 111, 109);
+}
+
+#userInput {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    width: 80%;
+    text-align: center;
+}
+

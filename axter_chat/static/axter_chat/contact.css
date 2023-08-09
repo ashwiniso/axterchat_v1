@@ -7,13 +7,28 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+section {
+    position: relative;
+    color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+}
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background: red;
     display: flex;
     justify-content: space-between;
     align-items: center;

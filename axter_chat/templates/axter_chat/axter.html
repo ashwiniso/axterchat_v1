@@ -7,12 +7,21 @@
     <title>Welcome!</title>
 
 {% load static %}
-<link rel = "stylesheet" type = "text/css" href = "{% static 'axter_chat/chatstyle.css' %}">
+<link rel = "stylesheet" type = "text/css" href = "{% static 'axter_chat/axter.css' %}">
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id ="body">
 
 <h1>axter: your new health buddy.</h1>
+<header>
+    <h2 class="logo">Logo</h2>
+    <nav class="navigation">
+        <a href="{% url 'axter_chat:index' %}">Home</a>
+        <a href="{% url 'axter_chat:axter' %}">Axter</a>
+        <a href="{% url 'axter_chat:about' %}">About</a>
+        <a href="{% url 'axter_chat:contact' %}">Contact</a>
+        <button class="btnLogin-popup">Login</button>           
+</header>
 
 <div>
     <div id="chatbot">

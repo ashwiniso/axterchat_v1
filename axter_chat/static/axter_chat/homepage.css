@@ -7,13 +7,22 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background: red;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,4 +82,156 @@ header {
 .navigation .btnLogin-popup:hover {
     background: #fff;
     color: #162938;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border : 2px solid rgb(225,255,255,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.input-box{
+    position: relative;
+    color : #fff;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #9ab0ee;
+    margin-bottom: 30px 0;
+}
+
+.input-box label{
+    position: absolute; 
+    top: 0;
+    left: 0;
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label{
+    top: -20px;
+    left: 0;
+    color: #9ab0ee;
+    font-size: 0.8em;
+}
+
+.input-box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    padding: 0 35px 0 15px; 
+    transition: .5s;
+}
+
+
+.input-box .icon{
+    position: absolute; 
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #fff;
+    transition: .5s;
+    line-height: 57px;
+}
+
+.remember-forgot{
+    font-size: 0.9em;
+    color: #fff;
+    font-weight: 500;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: whitesmoke;
+    margin-right: 3px;
+    color: #fff;
+}
+
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background: rgb(17,31,61);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn:hover{
+    background: #fff;
+    color: #162938;
+}
+
+.login-register{
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.login-register p a{
+    color: #9ab0ee;
+    background: rgb(17,31,61);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+.login-register p a:hover{
+    background: rgb(17,31,61);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    color: #9ab0ee;
+    text-decoration: underline;
+    text-align: right;
 }
