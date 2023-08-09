@@ -103,11 +103,32 @@ header {
     padding: 40px;
 }
 
+.wrapper .close-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background: rgb(17,31,61);
+    font-size: 1.5em;
+    justify-content: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    overflow-wrap: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-radius: 0 20px 0 20px;
+}
+
 .form-box h2 {
     font-size: 2em;
+    height: 60px;
     color: #fff;
     font-weight: 500;
     text-align: center;
+    text-shadow: #162938;
 }
 
 
@@ -211,27 +232,20 @@ header {
     color: #fff;
     font-weight: 500;
     margin-top: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .login-register p a{
     color: #9ab0ee;
-    background: rgb(17,31,61);
-    border: none;
     outline: none;
-    border-radius: 6px;
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
     text-align: center;
     font-weight: 600;
 }
 .login-register p a:hover{
-    background: rgb(17,31,61);
-    border: none;
-    outline: none;
-    border-radius: 6px;
     font-size: 1.2em;
     color: #9ab0ee;
     text-decoration: underline;
-    text-align: right;
+    text-align: center;
 }
