@@ -58,18 +58,17 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('axter_chat:index')  # Redirect to chatbot page after login
+            return redirect('axter_chat:axter')  # Redirect to chatbot page after login
     else:
         form = AuthenticationForm()
-    return render(request, 'axter_chat/login.html', {'form': form})
+    return render(request, 'axter_chat/index.html', {'form': form})
 
 def register_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # You can log in the user here if desired
             return redirect('axter_chat:index')  # Redirect to chatbot page after registration
     else:
         form = UserCreationForm()
-    return render(request, 'axter_chat/register.html', {'form': form})
+    return render(request, 'axter_chat/index.html', {'form': form})

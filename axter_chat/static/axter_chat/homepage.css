@@ -91,17 +91,53 @@ header {
     background: transparent;
     border : 2px solid rgb(225,255,255,.5);
     border-radius: 20px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 0 40px rgba(0,0,0,.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform .3s ease-in-out, height 0.4s ease-in-out;
+    overflow : hidden;
+    transform: scale(0);
+
+
+}
+
+.wrapper.online{
+    height: 500px;
 }
 
 .wrapper .form-box{
     width: 100%;
     padding: 40px;
 }
+
+.wrapper .form-box.login {
+    transition: transform 0.3s ease-in;
+    transform: translateX(0);
+} 
+
+.wrapper.online .form-box.login {
+    transition: none;
+    transform: translateX(-500px);
+} 
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(500px);
+}
+
+.wrapper.online .form-box.register {
+    transition: transform 0.3s ease-in;
+    transform: translateX(0);
+} 
+
+
+.wrapper.online-popup{
+    transform: scale(1);
+}
+
 
 .wrapper .close-icon{
     position: absolute;
@@ -137,7 +173,7 @@ header {
     color : #fff;
     width: 100%;
     height: 50px;
-    border-bottom: 2px solid #9ab0ee;
+    border-bottom: 2px solid #8aa1e2;
     margin-bottom: 30px 0;
 }
 
@@ -148,14 +184,14 @@ header {
     font-size: 1em;
     color: #fff;
     pointer-events: none;
-    transition: .5s;
+    transition: .5s ease-out;
 }
 
 .input-box input:focus ~ label,
 .input-box input:valid ~ label{
     top: -20px;
     left: 0;
-    color: #9ab0ee;
+    color: #ffffff;
     font-size: 0.8em;
 }
 
