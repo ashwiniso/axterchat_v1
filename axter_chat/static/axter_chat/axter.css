@@ -10,14 +10,14 @@
 }
 
 /* Common Styles for the Whole Website */
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: url('background.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .logo {
@@ -28,93 +28,98 @@ body{
 
 /* ... other header and navigation styles ... */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 99;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
 }
+
 .navigation a {
-  position: relative;
-  font-size: 1.1em;
-  color: #fff;
-  text-decoration:none;
-  font-weight: 500;
-  margin-left: 40px;
-  justify-content: space-between;
-  align-items: center;
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navigation a::after{
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 3px;
-  background: #fff;
-  border-radius: 5px;
-  transform: scaleX(0);
-  transition: transform .5s;
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
 }
 
-.navigation a:hover::after{
-  transform: scaleX(1);
+.navigation a:hover::after {
+    transform: scaleX(1);
 }
 
 .navigation .btnLogin-popup {
-  width: 130px;
-  height: 50px;
-  background: transparent;
-  border: 2px solid #fff;
-  outline: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1em;
-  color: #fff;
-  font-weight: 500;
-  margin-left: 40px;
-  transition:  0.5s;
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
 }
 
 .navigation .btnLogin-popup:hover {
-  background: #fff;
-  color: #162938;
+    background: #fff;
+    color: #162938;
 }
 
-
-/* Chatbot Specific Styling */
+/* iMessage Style Chatbot Container */
 #chatbot {
     width: 80%;
     margin-top: 50px auto;
     margin-left: auto;
     border-radius: 20px;
-    border: 3px solid #5b605c;
     margin-right: auto;
     overflow: hidden;
-    padding: 10px;
-    background-color: #1c1c1c; /* Set a background color for chatbot container */
-    color: #fff; /* Adjust font color for readability on dark background */
+    padding: 20px; /* Increased padding for better appearance */
+    background-color: #fff; /* White background for messages */
+    color: #000; /* Adjust font color for readability on white background */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .botText {
-    font-family: monospace;
+    font-family: 'Poppins', sans-serif; /* Use Poppins font for messages */
     font-size: 15px;
     text-align: left;
-    line-height: 25px;
-    color: rgb(109, 111, 109);
+    line-height: 1.4; /* Adjust line height for better spacing */
+    color: #000; /* Message text color */
 }
 
 #userInput {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
+    margin-top: 20px; /* Adjust spacing for input */
     width: 80%;
     text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc; /* Add a border to input */
+    border-radius: 6px; /* Rounded input corners */
+    background-color: #fff; /* Input background color */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font for input text */
+    font-size: 15px;
+    color: #000; /* Input text color */
 }
-

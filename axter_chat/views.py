@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.contrib import messages
 # Create your views here.
 
 from chatterbot import ChatBot
@@ -52,6 +54,15 @@ def axter(request):
 def contact(request):
     return render(request, "axter_chat/contact.html")
 
+def about2(request):
+    return render(request, "axter_chat/about2.html")
+
+def contact2(request):
+    return render(request, "axter_chat/contact2.html")
+
+def index2(request):
+    return render(request, "axter_chat/index2.html")
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -65,10 +76,19 @@ def login_view(request):
 
 def register_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            return redirect('axter_chat:index')  # Redirect to chatbot page after registration
-    else:
-        form = UserCreationForm()
-    return render(request, 'axter_chat/index.html', {'form': form})
+        uname = request.POST.get('username')
+        pass1 = request.POST.get('password1')
+        pass2 = request.POST.get('password2')
+        if pass1 != pass2:
+            messages.error(request, "Passwords do not match")
+            return render(request, 'axter_chat/index.html')
+        if User.objects.filter(username=uname).exists():
+            messages.error(request, "Username already exists")
+            return render(request, 'axter_chat/index.html')
+        else:
+            my_user = User.objects.create_user(uname, None, pass1)
+            my_user.save()
+            return redirect('axter_chat:axter')
+    return render(request, 'axter_chat/index.html')
+    
+        
