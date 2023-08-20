@@ -1,10 +1,13 @@
+from telnetlib import LOGOUT
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 from chatterbot import ChatBot
@@ -20,9 +23,7 @@ list_to_train = [
     "I am good.",
     "That is good to hear.",
     "Thank you",
-    "What is your name?",
     "My name is Axter.",
-    "Who are you?",
     "I am Axter.",
     "Who created you?",
     "I was created by a dev who goes by vloneashwin",
@@ -30,12 +31,23 @@ list_to_train = [
     "I was created by a dev who goes by vloneashwin",
     "What is your purpose?",
     "To help you with your doubts",
+    "I'll keep that in mind.",
+    "I am glad to hear that.",
+    "I am sorry to hear that.",
+    "I am sorry, but I do not understand. I am still learning.",
+    "I am sorry, but I do not understand.",
+    "Thats okay.",
+    "I am an AI chatbot.",
+    "I am an AI chatbot. I am still learning.",
+    "This is a great conversation. I am enjoying this.",
+    "This is a great conversation. I am enjoying this. I hope you are too.",
 ]
 
-#ListTrainer(bot).train(list_to_train)
+ListTrainer(bot).train(list_to_train)
 
 chatterbotCorpusTrainer = ChatterBotCorpusTrainer(bot)
 chatterbotCorpusTrainer.train("chatterbot.corpus.english")
+
 
 def index(request):
     return render(request, "axter_chat/index.html")
@@ -48,31 +60,24 @@ def getResponse(request):
 def about(request):
     return render(request, "axter_chat/about.html")
 
+@login_required(login_url='/login/')
 def axter(request):
     return render(request, "axter_chat/axter.html")
 
 def contact(request):
     return render(request, "axter_chat/contact.html")
 
+@login_required(login_url='/login/')
 def about2(request):
     return render(request, "axter_chat/about2.html")
 
+@login_required(login_url='/login/')
 def contact2(request):
     return render(request, "axter_chat/contact2.html")
 
+@login_required(login_url='/login/')
 def index2(request):
     return render(request, "axter_chat/index2.html")
-
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('axter_chat:axter')  # Redirect to chatbot page after login
-    else:
-        form = AuthenticationForm()
-    return render(request, 'axter_chat/index.html', {'form': form})
 
 def register_view(request):
     if request.method == 'POST':
@@ -81,14 +86,29 @@ def register_view(request):
         pass2 = request.POST.get('password2')
         if pass1 != pass2:
             messages.error(request, "Passwords do not match")
-            return render(request, 'axter_chat/index.html')
-        if User.objects.filter(username=uname).exists():
+        elif User.objects.filter(username=uname).exists():
             messages.error(request, "Username already exists")
-            return render(request, 'axter_chat/index.html')
         else:
             my_user = User.objects.create_user(uname, None, pass1)
             my_user.save()
             return redirect('axter_chat:axter')
-    return render(request, 'axter_chat/index.html')
+    return render(request, "axter_chat/index.html")
+        
+def login_view(request):
+    if request.method == 'POST':
+        uname = request.POST.get('username')
+        pass1 = request.POST.get('pass')
+        user = authenticate(request, username=uname, password=pass1)
+        if user is not None:
+            login(request, user)
+            return redirect('axter_chat:axter')
+        else:
+            messages.error(request, "Invalid Credentials")
+    return render(request, "axter_chat/axter.html")
+
+def logout_view(request):
+    logout(request)
+    return redirect('axter_chat:index')
+
     
         
