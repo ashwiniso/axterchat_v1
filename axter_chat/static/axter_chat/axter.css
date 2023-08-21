@@ -8,7 +8,12 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
+.h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #fff;
+}
 /* Common Styles for the Whole Website */
 body {
     display: flex;
@@ -59,7 +64,6 @@ header {
     height: 3px;
     background: #fff;
     border-radius: 5px;
-    transform: scaleX(0);
     transition: transform 0.5s;
 }
 

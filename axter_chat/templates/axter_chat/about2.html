@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <title>About Us</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'axter_chat/about.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'axter_chat/about2.css' %}">
 </head>
 <body>
     <header>
@@ -22,14 +23,32 @@
         </nav>
     </header>
     
-    <section class="about-section">
-        <h1>About Us</h1>
-        <p>Welcome to our website! We are dedicated to providing you with the best chatbot experience to answer your health-related questions.</p>
-        <p>Feel free to explore our features and services and reach out to us if you have any questions or feedback.</p>
-    </section>
+    <div class="section">
+        <div class="container">
+            <div class="content-section">
+                <h2 class="title">About Us</h2>
+                <p class="text">
+                    Axter chat is your health bot, shooting questions about your health and giving you the best advice on how to stay healthy.
+                    This application is inspired from Ada, which synthesizes symptom information to help users find possible causes for their symptoms.
+                    Therefore we can say, Axter chat is a chatbot that asks users questions about their symptoms and provides them with a list of possible causes.
+                    It is in its initial development stage and will be improved in the future with more features, like the ability to book appointments with doctors, integrate calenders and seek for online diagnostics report.    
+                </p>
+                <div class="btn-container">
+                    <a href="{% url 'axter_chat:contact2' %}">
+                        <button class="btn">Contact Us</button>
+                    </a>
+                </div>
+                <div class="social">
+                    <a href= ""><i class="fa fa-facebook-f"></i></a>
+                    <a href= ""><i class="fa fa-twitter"></i></a>
+                    <a href =""><i class="fa fa-instagram-f"></i></a>
+                </div>
+            </div>
+            <div class="img-section">
+                <img src="{% static 'background.jpg' %}">
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2023 Axter Chat</p>
-    </footer>
+   
 </body>
 </html>
