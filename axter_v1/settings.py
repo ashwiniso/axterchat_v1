@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import openai
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'axter_v1.wsgi.application'
 
-
+openai.api_key = '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'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 

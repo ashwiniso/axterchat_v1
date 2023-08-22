@@ -8,7 +8,11 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import openai
+
 # Create your views here.
+
+openai.api_key = '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'
 
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
@@ -52,10 +56,32 @@ chatterbotCorpusTrainer.train("chatterbot.corpus.english")
 def index(request):
     return render(request, "axter_chat/index.html")
 
+import openai
+
+def get_openai_response(prompt_text):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt_text}
+        ]
+    )
+    # Extract the assistant's response from the returned messages
+    return response.choices[0].message['content']
+
 def getResponse(request):
-    userMessage = request.GET.get('userMessage') #get the user message and integrate with HTML
-    chat_response = str(bot.get_response(userMessage))
+    userMessage = request.GET.get('userMessage')
+
+    # If user input starts with "act:", we use GPT for the response
+    if userMessage.startswith("act:"):
+        userMessage = userMessage.replace("act:", "").strip()
+        chat_response = get_openai_response(userMessage)
+    else:
+        chat_response = str(bot.get_response(userMessage))
+    
     return HttpResponse(chat_response)
+
+
 
 def about(request):
     return render(request, "axter_chat/about.html")
