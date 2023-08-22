@@ -1,1 +1,0 @@
-web: gnuicorn CCMS.wsgi --log-file -
