@@ -80,10 +80,15 @@ body {
 }
 
 .social a {
-    color: #333; /* Adjusted link color for better visibility */
+    color: #fff; /* Adjusted link color for better visibility */
     margin: 0 10px;
     font-size: 20px;
     text-decoration: none;
+}
+.social a:hover {
+    color: #162938;
+    transition: 0.5s;
+    transform: scale(1.2);
 }
 
 .img-section {
