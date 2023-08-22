@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*95e#2nin4zocf8f$1zk1d6ne1!tk^m8hzp#(3qb3h#zpnqzz9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ["127.0.0.1","axter-chat.herokuapp.com"]
 
 
 # Application definition
@@ -41,9 +42,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middlewalre.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middlewalre.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -70,7 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'axter_v1.wsgi.application'
 
-openai.api_key = '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'
+openai.api_key = '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'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 

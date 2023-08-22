@@ -9,10 +9,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import openai
-
 # Create your views here.
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
@@ -45,6 +44,8 @@ list_to_train = [
     "I am an AI chatbot. I am still learning.",
     "This is a great conversation. I am enjoying this.",
     "This is a great conversation. I am enjoying this. I hope you are too.",
+    "not yet",
+    "thats ok, im fine."
 ]
 
 ListTrainer(bot).train(list_to_train)
@@ -56,26 +57,16 @@ chatterbotCorpusTrainer.train("chatterbot.corpus.english")
 def index(request):
     return render(request, "axter_chat/index.html")
 
-import openai
 
-def get_openai_response(prompt_text):
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": prompt_text}
-        ]
-    )
-    # Extract the assistant's response from the returned messages
-    return response.choices[0].message['content']
 
 def getResponse(request):
     userMessage = request.GET.get('userMessage')
 
-    # If user input starts with "act:", we use GPT for the response
-    if userMessage.startswith("act:"):
-        userMessage = userMessage.replace("act:", "").strip()
-        chat_response = get_openai_response(userMessage)
+    # If user input starts with "gpt:", we use GPT for the response
+    if userMessage.startswith("gpt:"):
+        userMessage = userMessage.replace("gpt:", "").strip()
+        response = openai.Completion.create(engine="davinci", prompt=userMessage, max_tokens=150)
+        chat_response = response.choices[0].text.strip()
     else:
         chat_response = str(bot.get_response(userMessage))
     
